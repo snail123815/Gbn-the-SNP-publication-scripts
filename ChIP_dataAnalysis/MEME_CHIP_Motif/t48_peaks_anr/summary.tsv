@@ -1,0 +1,25 @@
+MOTIF_INDEX	MOTIF_SOURCE	MOTIF_ID	ALT_ID	CONSENSUS	WIDTH	SITES	E-VALUE	E-VALUE_SOURCE	MOST_SIMILAR_MOTIF_SOURCE	MOST_SIMILAR_MOTIF	URL
+1	DREME	GATCWW	DREME-1	GATCWW	6	3070	3.0e-580	DREME	 	 	 
+2	DREME	GATCASS	DREME-2	GATCASS	7	1318	5.9e-137	DREME	collectf.meme	EXPREG_00001030 (CRP_V.vulnificus)	http://www.collectf.org/EXPREG_00001030
+3	DREME	ASCWGS	DREME-3	ASCWGS	6	2094	2.4e-086	DREME	collectf.meme	EXPREG_000004b0 (PvdS_P.aeruginosa)	http://www.collectf.org/EXPREG_000004b0
+4	DREME	MGTAS	DREME-4	MGTAS	5	1320	2.0e-064	DREME	 	 	 
+5	DREME	GNCCTTS	DREME-5	GNCCTTS	7	811	1.1e-054	DREME	collectf.meme	EXPREG_00000700 (IHF_P.putida)	http://www.collectf.org/EXPREG_00000700
+6	DREME	CYTCGNC	DREME-6	CYTCGNC	7	1204	6.2e-032	DREME	collectf.meme	EXPREG_00001670 (VqsM_P.aeruginosa)	http://www.collectf.org/EXPREG_00001670
+7	DREME	CGGYGSC	DREME-7	CGGYGSC	7	942	1.3e-026	DREME	collectf.meme	EXPREG_000004b0 (PvdS_P.aeruginosa)	http://www.collectf.org/EXPREG_000004b0
+8	DREME	AACWDC	DREME-8	AACWDC	6	536	1.7e-021	DREME	 	 	 
+9	DREME	CTTCWNC	DREME-9	CTTCWNC	7	376	4.4e-019	DREME	collectf.meme	EXPREG_000004b0 (PvdS_P.aeruginosa)	http://www.collectf.org/EXPREG_000004b0
+10	DREME	CGATCTCS	DREME-10	CGATCTCS	8	235	1.2e-011	DREME	collectf.meme	EXPREG_000004d0 (AmrZ_P.aeruginosa)	http://www.collectf.org/EXPREG_000004d0
+11	DREME	CGVCAAG	DREME-11	CGVCAAG	7	192	3.0e-009	DREME	collectf.meme	EXPREG_00000c30 (EspR_M.tuberculosis)	http://www.collectf.org/EXPREG_00000c30
+12	DREME	CACCRMC	DREME-12	CACCRMC	7	358	4.1e-008	DREME	collectf.meme	EXPREG_000009d0 (AlgR_P.aeruginosa)	http://www.collectf.org/EXPREG_000009d0
+13	DREME	CCWGGA	DREME-13	CCWGGA	6	416	2.1e-007	DREME	 	 	 
+14	DREME	GCTGVCC	DREME-14	GCTGVCC	7	260	1.1e-005	DREME	collectf.meme	EXPREG_00001670 (VqsM_P.aeruginosa)	http://www.collectf.org/EXPREG_00001670
+15	DREME	AMCGGC	DREME-15	AMCGGC	6	546	5.6e-005	DREME	collectf.meme	EXPREG_00001770 (AdpA_S.coelicolor)	http://www.collectf.org/EXPREG_00001770
+16	DREME	CCWGTTC	DREME-16	CCWGTTC	7	134	1.4e-004	DREME	collectf.meme	EXPREG_000005d0 (LexA_M.tuberculosis)	http://www.collectf.org/EXPREG_000005d0
+17	DREME	AAGAMC	DREME-17	AAGAMC	6	178	5.5e-004	DREME	collectf.meme	EXPREG_00000700 (IHF_P.putida)	http://www.collectf.org/EXPREG_00000700
+18	DREME	GGTGAMC	DREME-18	GGTGAMC	7	122	1.5e-003	DREME	 	 	 
+19	DREME	CGDCTAC	DREME-19	CGDCTAC	7	60	1.9e-003	DREME	 	 	 
+20	DREME	AAGGYG	DREME-20	AAGGYG	6	219	8.5e-003	DREME	 	 	 
+
+# MEME-ChIP (Motif Analysis of Large Nucleotide Datasets): Version 5.1.1 released on Wed Jan 29 15:00:42 2020 -0800
+# The format of this file is described at http://meme-suite.org/doc/meme-chip-output-format.html
+# meme-chip -oc MEME_CHIP_Motif/./t48_peaks_anr -db collectf.meme -meme-mod anr ././t48_peaks.fa -meme-p 4

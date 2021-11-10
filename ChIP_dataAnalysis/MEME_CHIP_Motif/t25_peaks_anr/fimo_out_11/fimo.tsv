@@ -1,0 +1,4 @@
+
+# FIMO (Find Individual Motif Occurrences): Version 5.1.1 compiled on Aug 30 2020 at 12:36:04
+# The format of this file is described at http://meme-suite.org/doc/fimo-output-format.html.
+# fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t25_peaks_anr/fimo_out_11 --bgfile MEME_CHIP_Motif/t25_peaks_anr/background --motif AMCACC MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa

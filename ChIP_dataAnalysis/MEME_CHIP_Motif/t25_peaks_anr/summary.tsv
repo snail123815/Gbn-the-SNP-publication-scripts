@@ -1,0 +1,21 @@
+MOTIF_INDEX	MOTIF_SOURCE	MOTIF_ID	ALT_ID	CONSENSUS	WIDTH	SITES	E-VALUE	E-VALUE_SOURCE	MOST_SIMILAR_MOTIF_SOURCE	MOST_SIMILAR_MOTIF	URL
+1	DREME	GATCWW	DREME-1	GATCWW	6	3233	5.0e-796	DREME	 	 	 
+2	DREME	ASCWGS	DREME-2	ASCWGS	6	2172	3.0e-096	DREME	collectf.meme	EXPREG_000004b0 (PvdS_P.aeruginosa)	http://www.collectf.org/EXPREG_000004b0
+3	DREME	GTAS	DREME-3	GTAS	4	1742	2.6e-065	DREME	 	 	 
+4	DREME	GATCASS	DREME-4	GATCASS	7	895	8.1e-057	DREME	collectf.meme	EXPREG_00001030 (CRP_V.vulnificus)	http://www.collectf.org/EXPREG_00001030
+5	DREME	CGGYGNC	DREME-5	CGGYGNC	7	1831	2.4e-042	DREME	collectf.meme	EXPREG_000004b0 (PvdS_P.aeruginosa)	http://www.collectf.org/EXPREG_000004b0
+6	DREME	CTTCRNC	DREME-6	CTTCRNC	7	662	8.3e-036	DREME	collectf.meme	EXPREG_00001670 (VqsM_P.aeruginosa)	http://www.collectf.org/EXPREG_00001670
+7	DREME	CCTBGVC	DREME-7	CCTBGVC	7	1064	3.1e-031	DREME	collectf.meme	EXPREG_00001670 (VqsM_P.aeruginosa)	http://www.collectf.org/EXPREG_00001670
+8	DREME	SAAGAAS	DREME-8	SAAGAAS	7	204	3.5e-016	DREME	collectf.meme	EXPREG_00001480 (LexA_S.meliloti)	http://www.collectf.org/EXPREG_00001480
+9	DREME	AMCGSC	DREME-9	AMCGSC	6	924	1.4e-013	DREME	collectf.meme	EXPREG_00001770 (AdpA_S.coelicolor)	http://www.collectf.org/EXPREG_00001770
+10	DREME	GAACWGS	DREME-10	GAACWGS	7	244	6.5e-011	DREME	 	 	 
+11	DREME	AAGGYS	DREME-11	AAGGYS	6	472	3.8e-010	DREME	collectf.meme	EXPREG_00000700 (IHF_P.putida)	http://www.collectf.org/EXPREG_00000700
+12	DREME	GYCCTTGW	DREME-12	GYCCTTGW	8	62	1.4e-006	DREME	collectf.meme	EXPREG_00001480 (LexA_S.meliloti)	http://www.collectf.org/EXPREG_00001480
+13	DREME	AGATCGYC	DREME-13	AGATCGYC	8	92	9.6e-004	DREME	collectf.meme	EXPREG_000004d0 (AmrZ_P.aeruginosa)	http://www.collectf.org/EXPREG_000004d0
+14	DREME	AMCACC	DREME-14	AMCACC	6	289	2.4e-003	DREME	 	 	 
+15	DREME	AACWTC	DREME-15	AACWTC	6	211	3.8e-003	DREME	 	 	 
+16	DREME	GCWGGCC	DREME-16	GCWGGCC	7	154	4.5e-003	DREME	collectf.meme	EXPREG_00001670 (VqsM_P.aeruginosa)	http://www.collectf.org/EXPREG_00001670
+
+# MEME-ChIP (Motif Analysis of Large Nucleotide Datasets): Version 5.1.1 released on Wed Jan 29 15:00:42 2020 -0800
+# The format of this file is described at http://meme-suite.org/doc/meme-chip-output-format.html
+# meme-chip -oc MEME_CHIP_Motif/./t25_peaks_anr -db collectf.meme -meme-mod anr ././t25_peaks.fa -meme-p 4

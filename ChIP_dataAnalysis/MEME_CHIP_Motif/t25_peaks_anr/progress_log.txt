@@ -1,0 +1,150 @@
+Invoking:
+  getsize MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa 1> $metrics
+Finished invoke:
+  name: count_seqs  status: 0  time: 0.019016
+Invoking:
+  fasta-most -min 50 < MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa 1> $metrics
+Finished invoke:
+  name: most_seqs  status: 0  time: 0.06746
+Invoking:
+  fasta-center -dna -len 100 < MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa 1> MEME_CHIP_Motif/t25_peaks_anr/seqs-centered
+Finished invoke:
+  name: center_seqs  status: 0  time: 0.077859
+Invoking:
+  fasta-shuffle-letters MEME_CHIP_Motif/t25_peaks_anr/seqs-centered MEME_CHIP_Motif/t25_peaks_anr/seqs-shuffled -kmer 2 -tag -dinuc -dna -seed 1
+Finished invoke:
+  name: shuffle_seqs  status: 0  time: 0.030266
+Invoking:
+  fasta-get-markov -nostatus -nosummary -dna -m 1 MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa MEME_CHIP_Motif/t25_peaks_anr/background
+Finished invoke:
+  name: bg  status: 0  time: 0.011764
+Invoking:
+  meme MEME_CHIP_Motif/t25_peaks_anr/seqs-centered -oc MEME_CHIP_Motif/t25_peaks_anr/meme_out -mod anr -nmotifs 3 -minw 6 -maxw 30 -bfile MEME_CHIP_Motif/t25_peaks_anr/background -dna -p 4 -revcomp -nostatus
+Finished invoke:
+  name: meme  status: 512  time: 0.003049
+Invoking:
+  dreme -verbosity 1 -oc MEME_CHIP_Motif/t25_peaks_anr/dreme_out -png -dna -p MEME_CHIP_Motif/t25_peaks_anr/seqs-centered -n MEME_CHIP_Motif/t25_peaks_anr/seqs-shuffled
+Finished invoke:
+  name: dreme  status: 0  time: 129.719357
+Invoking:
+  centrimo -seqlen 300 -verbosity 1 -oc MEME_CHIP_Motif/t25_peaks_anr/centrimo_out -bfile MEME_CHIP_Motif/t25_peaks_anr/background MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: centrimo  status: 256  time: 0.082366
+Invoking:
+  tomtom -verbosity 1 -oc MEME_CHIP_Motif/t25_peaks_anr/dreme_tomtom_out -min-overlap 5 -dist pearson -evalue -thresh 1 -no-ssc MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: dreme_tomtom  status: 0  time: 0.610886
+Invoking:
+  tomtom -verbosity 1 -text -thresh 0.1 MEME_CHIP_Motif/t25_peaks_anr/combined.meme MEME_CHIP_Motif/t25_peaks_anr/combined.meme 1> MEME_CHIP_Motif/t25_peaks_anr/motif_alignment.txt
+Finished invoke:
+  name: align  status: 0  time: 0.066803
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t25_peaks_anr/spamo_out_1 -bgfile MEME_CHIP_Motif/t25_peaks_anr/background -keepprimary -primary GATCWW MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo1  status: 256  time: 0.073984
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t25_peaks_anr/spamo_out_2 -bgfile MEME_CHIP_Motif/t25_peaks_anr/background -keepprimary -primary ASCWGS MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo2  status: 256  time: 0.069289
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t25_peaks_anr/spamo_out_3 -bgfile MEME_CHIP_Motif/t25_peaks_anr/background -keepprimary -primary GTAS MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo3  status: 256  time: 0.093383
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t25_peaks_anr/spamo_out_4 -bgfile MEME_CHIP_Motif/t25_peaks_anr/background -keepprimary -primary CGGYGNC MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo4  status: 256  time: 0.100793
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t25_peaks_anr/spamo_out_5 -bgfile MEME_CHIP_Motif/t25_peaks_anr/background -keepprimary -primary CTTCRNC MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo5  status: 256  time: 0.106417
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t25_peaks_anr/spamo_out_6 -bgfile MEME_CHIP_Motif/t25_peaks_anr/background -keepprimary -primary CCTBGVC MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo6  status: 256  time: 0.075047
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t25_peaks_anr/spamo_out_7 -bgfile MEME_CHIP_Motif/t25_peaks_anr/background -keepprimary -primary SAAGAAS MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo7  status: 256  time: 0.131899
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t25_peaks_anr/spamo_out_8 -bgfile MEME_CHIP_Motif/t25_peaks_anr/background -keepprimary -primary AMCGSC MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo8  status: 256  time: 0.114699
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t25_peaks_anr/spamo_out_9 -bgfile MEME_CHIP_Motif/t25_peaks_anr/background -keepprimary -primary AAGGYS MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo9  status: 256  time: 0.127444
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t25_peaks_anr/spamo_out_10 -bgfile MEME_CHIP_Motif/t25_peaks_anr/background -keepprimary -primary GYCCTTGW MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo10  status: 256  time: 0.076834
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t25_peaks_anr/spamo_out_11 -bgfile MEME_CHIP_Motif/t25_peaks_anr/background -keepprimary -primary AMCACC MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo11  status: 256  time: 0.111441
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t25_peaks_anr/spamo_out_12 -bgfile MEME_CHIP_Motif/t25_peaks_anr/background -keepprimary -primary AACWTC MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo12  status: 256  time: 0.096819
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t25_peaks_anr/spamo_out_13 -bgfile MEME_CHIP_Motif/t25_peaks_anr/background -keepprimary -primary GCWGGCC MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo13  status: 256  time: 0.113401
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t25_peaks_anr/fimo_out_1 --bgfile MEME_CHIP_Motif/t25_peaks_anr/background --motif GATCWW MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa
+Finished invoke:
+  name: fimo1  status: 0  time: 0.204511
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t25_peaks_anr/fimo_out_2 --bgfile MEME_CHIP_Motif/t25_peaks_anr/background --motif ASCWGS MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa
+Finished invoke:
+  name: fimo2  status: 0  time: 0.163261
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t25_peaks_anr/fimo_out_3 --bgfile MEME_CHIP_Motif/t25_peaks_anr/background --motif GTAS MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa
+Finished invoke:
+  name: fimo3  status: 0  time: 0.176343
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t25_peaks_anr/fimo_out_4 --bgfile MEME_CHIP_Motif/t25_peaks_anr/background --motif CGGYGNC MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa
+Finished invoke:
+  name: fimo4  status: 0  time: 0.195539
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t25_peaks_anr/fimo_out_5 --bgfile MEME_CHIP_Motif/t25_peaks_anr/background --motif CTTCRNC MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa
+Finished invoke:
+  name: fimo5  status: 0  time: 0.208401
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t25_peaks_anr/fimo_out_6 --bgfile MEME_CHIP_Motif/t25_peaks_anr/background --motif CCTBGVC MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa
+Finished invoke:
+  name: fimo6  status: 0  time: 0.179369
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t25_peaks_anr/fimo_out_7 --bgfile MEME_CHIP_Motif/t25_peaks_anr/background --motif SAAGAAS MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa
+Finished invoke:
+  name: fimo7  status: 0  time: 0.181728
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t25_peaks_anr/fimo_out_8 --bgfile MEME_CHIP_Motif/t25_peaks_anr/background --motif AMCGSC MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa
+Finished invoke:
+  name: fimo8  status: 0  time: 0.172896
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t25_peaks_anr/fimo_out_9 --bgfile MEME_CHIP_Motif/t25_peaks_anr/background --motif AAGGYS MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa
+Finished invoke:
+  name: fimo9  status: 0  time: 0.181949
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t25_peaks_anr/fimo_out_10 --bgfile MEME_CHIP_Motif/t25_peaks_anr/background --motif GYCCTTGW MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa
+Finished invoke:
+  name: fimo10  status: 0  time: 0.182028
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t25_peaks_anr/fimo_out_11 --bgfile MEME_CHIP_Motif/t25_peaks_anr/background --motif AMCACC MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa
+Finished invoke:
+  name: fimo11  status: 0  time: 0.165223
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t25_peaks_anr/fimo_out_12 --bgfile MEME_CHIP_Motif/t25_peaks_anr/background --motif AACWTC MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa
+Finished invoke:
+  name: fimo12  status: 0  time: 0.194782
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t25_peaks_anr/fimo_out_13 --bgfile MEME_CHIP_Motif/t25_peaks_anr/background --motif GCWGGCC MEME_CHIP_Motif/t25_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa
+Finished invoke:
+  name: fimo13  status: 0  time: 0.189118
+Writing output
+Invoking:
+  meme-chip_html_to_tsv MEME_CHIP_Motif/./t25_peaks_anr/meme-chip.html MEME_CHIP_Motif/./t25_peaks_anr/summary.tsv "meme-chip -oc MEME_CHIP_Motif/./t25_peaks_anr -db collectf.meme -meme-mod anr ././t25_peaks.fa -meme-p 4" 5.1.1 "Wed Jan 29 15\:00\:42 2020 -0800"
+Finished invoke:
+  name: summary  status: 0  time: 0.060439
+Done

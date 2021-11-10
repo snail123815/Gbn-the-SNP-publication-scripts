@@ -1,0 +1,158 @@
+Invoking:
+  getsize MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa 1> $metrics
+Finished invoke:
+  name: count_seqs  status: 0  time: 0.02158
+Invoking:
+  fasta-most -min 50 < MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa 1> $metrics
+Finished invoke:
+  name: most_seqs  status: 0  time: 0.067234
+Invoking:
+  fasta-center -dna -len 100 < MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa 1> MEME_CHIP_Motif/t48_peaks_anr/seqs-centered
+Finished invoke:
+  name: center_seqs  status: 0  time: 0.08161
+Invoking:
+  fasta-shuffle-letters MEME_CHIP_Motif/t48_peaks_anr/seqs-centered MEME_CHIP_Motif/t48_peaks_anr/seqs-shuffled -kmer 2 -tag -dinuc -dna -seed 1
+Finished invoke:
+  name: shuffle_seqs  status: 0  time: 0.029438
+Invoking:
+  fasta-get-markov -nostatus -nosummary -dna -m 1 MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa MEME_CHIP_Motif/t48_peaks_anr/background
+Finished invoke:
+  name: bg  status: 0  time: 0.017197
+Invoking:
+  meme MEME_CHIP_Motif/t48_peaks_anr/seqs-centered -oc MEME_CHIP_Motif/t48_peaks_anr/meme_out -mod anr -nmotifs 3 -minw 6 -maxw 30 -bfile MEME_CHIP_Motif/t48_peaks_anr/background -dna -p 4 -revcomp -nostatus
+Finished invoke:
+  name: meme  status: 512  time: 0.002792
+Invoking:
+  dreme -verbosity 1 -oc MEME_CHIP_Motif/t48_peaks_anr/dreme_out -png -dna -p MEME_CHIP_Motif/t48_peaks_anr/seqs-centered -n MEME_CHIP_Motif/t48_peaks_anr/seqs-shuffled
+Finished invoke:
+  name: dreme  status: 0  time: 166.834744
+Invoking:
+  centrimo -seqlen 300 -verbosity 1 -oc MEME_CHIP_Motif/t48_peaks_anr/centrimo_out -bfile MEME_CHIP_Motif/t48_peaks_anr/background MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: centrimo  status: 256  time: 0.083402
+Invoking:
+  tomtom -verbosity 1 -oc MEME_CHIP_Motif/t48_peaks_anr/dreme_tomtom_out -min-overlap 5 -dist pearson -evalue -thresh 1 -no-ssc MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: dreme_tomtom  status: 0  time: 0.720875
+Invoking:
+  tomtom -verbosity 1 -text -thresh 0.1 MEME_CHIP_Motif/t48_peaks_anr/combined.meme MEME_CHIP_Motif/t48_peaks_anr/combined.meme 1> MEME_CHIP_Motif/t48_peaks_anr/motif_alignment.txt
+Finished invoke:
+  name: align  status: 0  time: 0.070684
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t48_peaks_anr/spamo_out_1 -bgfile MEME_CHIP_Motif/t48_peaks_anr/background -keepprimary -primary GATCWW MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo1  status: 256  time: 0.136516
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t48_peaks_anr/spamo_out_2 -bgfile MEME_CHIP_Motif/t48_peaks_anr/background -keepprimary -primary ASCWGS MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo2  status: 256  time: 0.093016
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t48_peaks_anr/spamo_out_3 -bgfile MEME_CHIP_Motif/t48_peaks_anr/background -keepprimary -primary MGTAS MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo3  status: 256  time: 0.114798
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t48_peaks_anr/spamo_out_4 -bgfile MEME_CHIP_Motif/t48_peaks_anr/background -keepprimary -primary GNCCTTS MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo4  status: 256  time: 0.09482
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t48_peaks_anr/spamo_out_5 -bgfile MEME_CHIP_Motif/t48_peaks_anr/background -keepprimary -primary CYTCGNC MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo5  status: 256  time: 0.108107
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t48_peaks_anr/spamo_out_6 -bgfile MEME_CHIP_Motif/t48_peaks_anr/background -keepprimary -primary CGGYGSC MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo6  status: 256  time: 0.110941
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t48_peaks_anr/spamo_out_7 -bgfile MEME_CHIP_Motif/t48_peaks_anr/background -keepprimary -primary AACWDC MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo7  status: 256  time: 0.093037
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t48_peaks_anr/spamo_out_8 -bgfile MEME_CHIP_Motif/t48_peaks_anr/background -keepprimary -primary CGVCAAG MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo8  status: 256  time: 0.113609
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t48_peaks_anr/spamo_out_9 -bgfile MEME_CHIP_Motif/t48_peaks_anr/background -keepprimary -primary CACCRMC MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo9  status: 256  time: 0.109995
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t48_peaks_anr/spamo_out_10 -bgfile MEME_CHIP_Motif/t48_peaks_anr/background -keepprimary -primary CCWGGA MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo10  status: 256  time: 0.110496
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t48_peaks_anr/spamo_out_11 -bgfile MEME_CHIP_Motif/t48_peaks_anr/background -keepprimary -primary GCTGVCC MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo11  status: 256  time: 0.110589
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t48_peaks_anr/spamo_out_12 -bgfile MEME_CHIP_Motif/t48_peaks_anr/background -keepprimary -primary AMCGGC MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo12  status: 256  time: 0.109417
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t48_peaks_anr/spamo_out_13 -bgfile MEME_CHIP_Motif/t48_peaks_anr/background -keepprimary -primary GGTGAMC MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo13  status: 256  time: 0.073338
+Invoking:
+  spamo -verbosity 1 -oc MEME_CHIP_Motif/t48_peaks_anr/spamo_out_14 -bgfile MEME_CHIP_Motif/t48_peaks_anr/background -keepprimary -primary CGDCTAC MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml collectf.meme
+Finished invoke:
+  name: spamo14  status: 256  time: 0.095575
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t48_peaks_anr/fimo_out_1 --bgfile MEME_CHIP_Motif/t48_peaks_anr/background --motif GATCWW MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa
+Finished invoke:
+  name: fimo1  status: 0  time: 0.19309
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t48_peaks_anr/fimo_out_2 --bgfile MEME_CHIP_Motif/t48_peaks_anr/background --motif ASCWGS MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa
+Finished invoke:
+  name: fimo2  status: 0  time: 0.175584
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t48_peaks_anr/fimo_out_3 --bgfile MEME_CHIP_Motif/t48_peaks_anr/background --motif MGTAS MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa
+Finished invoke:
+  name: fimo3  status: 0  time: 0.15462
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t48_peaks_anr/fimo_out_4 --bgfile MEME_CHIP_Motif/t48_peaks_anr/background --motif GNCCTTS MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa
+Finished invoke:
+  name: fimo4  status: 0  time: 0.16861
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t48_peaks_anr/fimo_out_5 --bgfile MEME_CHIP_Motif/t48_peaks_anr/background --motif CYTCGNC MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa
+Finished invoke:
+  name: fimo5  status: 0  time: 0.16808
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t48_peaks_anr/fimo_out_6 --bgfile MEME_CHIP_Motif/t48_peaks_anr/background --motif CGGYGSC MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa
+Finished invoke:
+  name: fimo6  status: 0  time: 0.157849
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t48_peaks_anr/fimo_out_7 --bgfile MEME_CHIP_Motif/t48_peaks_anr/background --motif AACWDC MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa
+Finished invoke:
+  name: fimo7  status: 0  time: 0.156533
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t48_peaks_anr/fimo_out_8 --bgfile MEME_CHIP_Motif/t48_peaks_anr/background --motif CGVCAAG MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa
+Finished invoke:
+  name: fimo8  status: 0  time: 0.183063
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t48_peaks_anr/fimo_out_9 --bgfile MEME_CHIP_Motif/t48_peaks_anr/background --motif CACCRMC MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa
+Finished invoke:
+  name: fimo9  status: 0  time: 0.182945
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t48_peaks_anr/fimo_out_10 --bgfile MEME_CHIP_Motif/t48_peaks_anr/background --motif CCWGGA MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa
+Finished invoke:
+  name: fimo10  status: 0  time: 0.186733
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t48_peaks_anr/fimo_out_11 --bgfile MEME_CHIP_Motif/t48_peaks_anr/background --motif GCTGVCC MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa
+Finished invoke:
+  name: fimo11  status: 0  time: 0.176875
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t48_peaks_anr/fimo_out_12 --bgfile MEME_CHIP_Motif/t48_peaks_anr/background --motif AMCGGC MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa
+Finished invoke:
+  name: fimo12  status: 0  time: 0.16976
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t48_peaks_anr/fimo_out_13 --bgfile MEME_CHIP_Motif/t48_peaks_anr/background --motif GGTGAMC MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa
+Finished invoke:
+  name: fimo13  status: 0  time: 0.188669
+Invoking:
+  fimo --parse-genomic-coord --verbosity 1 --oc MEME_CHIP_Motif/t48_peaks_anr/fimo_out_14 --bgfile MEME_CHIP_Motif/t48_peaks_anr/background --motif CGDCTAC MEME_CHIP_Motif/t48_peaks_anr/dreme_out/dreme.xml MEME_CHIP_Motif/t48_peaks_anr/t48_peaks.fa
+Finished invoke:
+  name: fimo14  status: 0  time: 0.198345
+Writing output
+Invoking:
+  meme-chip_html_to_tsv MEME_CHIP_Motif/./t48_peaks_anr/meme-chip.html MEME_CHIP_Motif/./t48_peaks_anr/summary.tsv "meme-chip -oc MEME_CHIP_Motif/./t48_peaks_anr -db collectf.meme -meme-mod anr ././t48_peaks.fa -meme-p 4" 5.1.1 "Wed Jan 29 15\:00\:42 2020 -0800"
+Finished invoke:
+  name: summary  status: 0  time: 0.0786
+Done

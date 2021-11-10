@@ -1,0 +1,1 @@
+sh: 1: /vol/local/duc/envs/shortReads/bin/parallel/meme: not found

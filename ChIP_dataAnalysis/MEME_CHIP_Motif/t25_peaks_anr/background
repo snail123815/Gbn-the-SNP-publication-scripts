@@ -1,0 +1,24 @@
+# 1-order Markov frequencies from file MEME_CHIP_Motif/t25_peaks_anr/t25_peaks.fa
+# seqs: 2825    min: 300    max: 300    avg: 300.0    sum: 847500    alph: DNA
+# order 0
+A 1.563e-01
+C 3.437e-01
+G 3.437e-01
+T 1.563e-01
+# order 1
+AA 1.998e-02
+AC 5.678e-02
+AG 5.037e-02
+AT 2.919e-02
+CA 5.463e-02
+CC 1.030e-01
+CG 1.357e-01
+CT 5.037e-02
+GA 7.123e-02
+GC 1.127e-01
+GG 1.030e-01
+GT 5.678e-02
+TA 1.047e-02
+TC 7.123e-02
+TG 5.463e-02
+TT 1.998e-02

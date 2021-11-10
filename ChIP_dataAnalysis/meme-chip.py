@@ -16,9 +16,9 @@ memedb = 'collectf.meme'
 
 
 def runMemeChip(inputFile, db, outputDir, mod='anr'):
-    if os.path.isdir(outputDir):
-        print(f'{outputDir} already exists, skip')
-        return
+#    if os.path.isdir(outputDir):
+#        print(f'{outputDir} already exists, skip')
+#        return
     args = ['meme-chip',
             '-oc', outputDir,
             '-db', db,
@@ -35,7 +35,7 @@ def runMemeChip(inputFile, db, outputDir, mod='anr'):
 
 
 output = 'MEME_CHIP_Motif'
-os.makedirs(output)
+os.makedirs(output, exist_ok=True)
 mod='anr'
 for source, file in fileDict.items():
     inputFile = os.path.join(path, file)
