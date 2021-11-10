@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NCPU=10
-BAMSORTMEM=10
+BAMSORTMEM=10 # per thread, NCPU * BAMSORTMEM cannot exceed total memory of machine
 RAWREADS=cleanreads # dir in source dir
 GENOME=M145.fa # file in source dir
 ISPE=""
