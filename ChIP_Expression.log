@@ -1,0 +1,49 @@
+2021-11-10 10:30:12,856 [WARNING] - Change plot style to default
+2021-11-10 10:30:27,982 [INFO] - ['start', 'end', 'length', 'abs_summit', 'pileup', 'fold_enrichment', '-log10(qvalue)'] avaliable, using "length"
+2021-11-10 10:30:28,176 [INFO] - MWU exp(U=499819.5,n=535)/ctr(U=725330.5,n=2290)
+exp less $p$-value = 1.587865800753707e-11
+2021-11-10 10:30:28,180 [INFO] - Save plot at Plots/25hPeaks_length distribution_0931c2.svg
+2021-11-10 10:30:28,928 [INFO] - ['start', 'end', 'length', 'abs_summit', 'pileup', 'fold_enrichment', '-log10(qvalue)'] avaliable, using "length"
+2021-11-10 10:30:29,111 [INFO] - MWU exp(U=434736.5,n=485)/ctr(U=745753.5,n=2434)
+exp less $p$-value = 2.2503445955726715e-20
+2021-11-10 10:30:29,115 [INFO] - Save plot at Plots/48hPeaks_length distribution_6521cc.svg
+2021-11-10 10:30:29,737 [INFO] - ['start', 'end', 'length', 'abs_summit', 'pileup', 'fold_enrichment', '-log10(qvalue)'] avaliable, using "length"
+2021-11-10 10:30:29,867 [INFO] - MWU exp(U=499819.5,n=535)/ctr(U=725330.5,n=2290)
+exp less $p$-value = 1.587865800753707e-11
+2021-11-10 10:30:29,871 [INFO] - Plot exists: Plots/25hPeaks_length distribution_0931c2.svg
+2021-11-10 10:30:30,284 [INFO] - ['start', 'end', 'length', 'abs_summit', 'pileup', 'fold_enrichment', '-log10(qvalue)'] avaliable, using "length"
+2021-11-10 10:30:30,413 [INFO] - MWU exp(U=434736.5,n=485)/ctr(U=745753.5,n=2434)
+exp less $p$-value = 2.2503445955726715e-20
+2021-11-10 10:30:30,417 [INFO] - Plot exists: Plots/48hPeaks_length distribution_6521cc.svg
+2021-11-10 10:30:47,491 [INFO] - Items in ['SCO0053', 'SCO0076', 'SCO0092', 'SCO0099', 'SCO0114', 'SCO0146', 'SCO0221', 'SCO0448', 'SCO0697', 'SCO0879', 'SCOs02', 'SCO3488', 'SCO4318', 'SCO5328', 'SCO5630', 'SCO6016', 'SCO6396', 'SCO6911', 'SCO7744', 'SCO7745', 'SCO7802', 'SCO7814'] are not found in data table (or is infinite).
+2021-11-10 10:30:47,564 [INFO] - ['Dgbn_24', 'Dgbn_45', 'WT_24', 'WT_45'] avaliable, using "Dgbn_24"
+2021-11-10 10:30:47,905 [INFO] - MWU exp(U=3677736.5,n=983)/ctr(U=3057779.5,n=6852)
+exp greater $p$-value = 1.4769356624447422e-06
+2021-11-10 10:30:47,908 [INFO] - Save plot at Plots/Dgbn_24 distribution_c876c4.svg
+2021-11-10 10:30:49,056 [INFO] - Items in ['SCO0053', 'SCO0076', 'SCO0092', 'SCO0114', 'SCO0146', 'SCO0221', 'SCO0448', 'SCO0634', 'SCO0697', 'SCO0879', 'SCOs02', 'SCO3488', 'SCO3991', 'SCO4318', 'SCO5328', 'SCO5630', 'SCO6396', 'SCO7814'] are not found in data table (or is infinite).
+2021-11-10 10:30:49,137 [INFO] - ['Dgbn_24', 'Dgbn_45', 'WT_24', 'WT_45'] avaliable, using "Dgbn_45"
+2021-11-10 10:30:49,382 [INFO] - MWU exp(U=3518028.5,n=954)/ctr(U=3046445.5,n=6881)
+exp greater $p$-value = 0.00015825757967497
+2021-11-10 10:30:49,385 [INFO] - Save plot at Plots/Dgbn_45 distribution_07619d.svg
+2021-11-10 10:30:50,490 [INFO] - Items in ['SCO0053', 'SCO0076', 'SCO0092', 'SCO0099', 'SCO0114', 'SCO0146', 'SCO0221', 'SCO0448', 'SCO0697', 'SCO0879', 'SCOs02', 'SCO3488', 'SCO4318', 'SCO5328', 'SCO5630', 'SCO6016', 'SCO6396', 'SCO6911', 'SCO7744', 'SCO7745', 'SCO7802', 'SCO7814'] are not found in data table (or is infinite).
+2021-11-10 10:30:50,568 [INFO] - ['Dgbn_24', 'Dgbn_45', 'WT_24', 'WT_45'] avaliable, using "WT_24"
+2021-11-10 10:30:50,811 [INFO] - MWU exp(U=3635104.0,n=983)/ctr(U=3100412.0,n=6852)
+exp greater $p$-value = 2.7750224851703483e-05
+2021-11-10 10:30:50,814 [INFO] - Save plot at Plots/WT_24 distribution_19cb2a.svg
+2021-11-10 10:30:51,959 [INFO] - Items in ['SCO0053', 'SCO0076', 'SCO0092', 'SCO0114', 'SCO0146', 'SCO0221', 'SCO0448', 'SCO0634', 'SCO0697', 'SCO0879', 'SCOs02', 'SCO3488', 'SCO3991', 'SCO4318', 'SCO5328', 'SCO5630', 'SCO6396', 'SCO7814'] are not found in data table (or is infinite).
+2021-11-10 10:30:52,040 [INFO] - ['Dgbn_24', 'Dgbn_45', 'WT_24', 'WT_45'] avaliable, using "WT_45"
+2021-11-10 10:30:52,303 [INFO] - MWU exp(U=3467570.0,n=954)/ctr(U=3096904.0,n=6881)
+exp greater $p$-value = 0.0023222571792620396
+2021-11-10 10:30:52,306 [INFO] - Save plot at Plots/WT_45 distribution_9800aa.svg
+2021-11-10 10:30:53,435 [INFO] - ['mu45_24', 'mu_wt24', 'mu_wt45', 'wt45_24'] avaliable in dict, using "mu_wt24".
+2021-11-10 10:30:53,444 [INFO] - Items in ['SCO0053', 'SCO0076', 'SCO0092', 'SCO0099', 'SCO0114', 'SCO0146', 'SCO0221', 'SCO0448', 'SCO0634', 'SCO0697', 'SCO0879', 'SCO3488', 'SCO3991', 'SCO4318', 'SCO5328', 'SCO5630', 'SCO6016', 'SCO6396', 'SCO6911', 'SCO7744', 'SCO7745', 'SCO7802', 'SCO7814'] are not found in data table (or is infinite).
+2021-11-10 10:30:53,549 [INFO] - ['log2FC', 'SE', 'pvalue', 'adj.pvalue', 'baseMean'] avaliable, using "log2FC"
+2021-11-10 10:30:54,762 [INFO] - MWU exp(U=4273126.0,n=1185)/ctr(U=3624899.0,n=6665)
+exp greater $p$-value = 3.2590710013985993e-06
+2021-11-10 10:30:54,766 [INFO] - Save plot at Plots/mu_wt24_shrinked_log2FC distribution_730608.svg
+2021-11-10 10:30:58,605 [INFO] - ['mu45_24', 'mu_wt24', 'mu_wt45', 'wt45_24'] avaliable in dict, using "mu_wt45".
+2021-11-10 10:30:58,614 [INFO] - Items in ['SCO0053', 'SCO0076', 'SCO0092', 'SCO0099', 'SCO0114', 'SCO0146', 'SCO0221', 'SCO0448', 'SCO0634', 'SCO0697', 'SCO0879', 'SCO3488', 'SCO3991', 'SCO4318', 'SCO5328', 'SCO5630', 'SCO6016', 'SCO6396', 'SCO6911', 'SCO7744', 'SCO7745', 'SCO7802', 'SCO7814'] are not found in data table (or is infinite).
+2021-11-10 10:30:58,722 [INFO] - ['log2FC', 'SE', 'pvalue', 'adj.pvalue', 'baseMean'] avaliable, using "log2FC"
+2021-11-10 10:30:59,364 [INFO] - MWU exp(U=4171879.0,n=1185)/ctr(U=3726146.0,n=6665)
+exp greater $p$-value = 0.0009664144054268554
+2021-11-10 10:30:59,368 [INFO] - Save plot at Plots/mu_wt45_shrinked_log2FC distribution_aeb343.svg
