@@ -53,10 +53,10 @@ def predictd(experimentDict, outputDir, gsize):
 def readComps(compFile, bamPath):
     """
     name    ctr exp
-    G24 G24C_G24C.sam   G24E_G24E.sam
-    G48 G48C_G48C.sam   G48E_G48E.sam
-    M24 M24C_M24C.sam   M24E_M24E.sam
-    M48 M48C_M48C.sam   M48E_M48E.sam
+    G24 G24C_G24C   G24E_G24E
+    G48 G48C_G48C   G48E_G48E
+    M24 M24C_M24C   M24E_M24E
+    M48 M48C_M48C   M48E_M48E
 
     experimentDict = {
         'exp1': {'exp':'filePathA', 'ctr':'filePathB'}
@@ -67,14 +67,23 @@ def readComps(compFile, bamPath):
     """
     experimentDict = {}
     with open(compFile, 'r') as f:
+        ctri = 1
+        expi = 2
         for i, l in enumerate(f.readlines()):
             ls = l.strip().split('\t')
+            if len(ls) == 1:
+                ls = l.strip().split(',')
             if i == 0:
-                ctri = ls.index('ctr')
-                expi = ls.index('exp')
-                continue
+                try:
+                    ctri = ls.index('ctr')
+                    expi = ls.index('exp')
+                    continue
+                except:
+                    print('Assuming second column is ctr and third is exp')
             ctr = os.path.join(bamPath, ls[ctri])
             exp = os.path.join(bamPath, ls[expi])
+            ctr += ('.bam' if not ctr.endswith('.bam') else "")
+            exp += ('.bam' if not exp.endswith('.bam') else "")
             experimentDict[ls[0]] = {'ctr': ctr, 'exp': exp}
     return experimentDict
 
