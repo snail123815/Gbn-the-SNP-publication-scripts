@@ -30,7 +30,7 @@ dependencies:
         - ipython
         - jedi
         - macs2
-        - meme
+        - meme=5.1
         - numpy
         - openpyxl
         - openssl
@@ -59,3 +59,41 @@ Run:
 ```sh
 python macs2_peak_calling.py -b alignmentBAM/ -o peakCalling -c compare.tsv
 ```
+
+## Get sequences of peaks
+
+Run:
+
+```sh
+python pull_peak_sequences.py -g M145.fa -f 'peakCalling/t25/t25_peaks.xls' 'peakCalling/t48/t48_peaks.xls' --filter summit -o ./
+```
+
+## Run meme-chip
+
+Dump files `t25_peaks.fa`, `t48_peaks.fa` to [MEME Suit - MEME_ChIP](https://meme-suite.org/meme/tools/meme-chip) is the best way.  
+If you really want to run it locally: (No gaurentee)
+
+Database in this folder `collectf.meme` was from MEME version 4
+
+Run this the first time to prepare for meme run:
+
+```sh
+python meme-chip.py
+```
+
+The program will end without running meme.
+
+Run following command manually because meme-chip looked for `meme` in a wrong location.
+
+```sh
+meme MEME_CHIP_Motif/t25_peaks_anr/seqs-centered -oc MEME_CHIP_Motif/t25_peaks_anr/meme_out -mod anr -nmotifs 3 -minw 6 -maxw 30 -bfile MEME_CHIP_Motif/t25_peaks_anr/background -dna -p 4 -revcomp
+meme MEME_CHIP_Motif/t48_peaks_anr/seqs-centered -oc MEME_CHIP_Motif/t48_peaks_anr/meme_out -mod anr -nmotifs 3 -minw 6 -maxw 30 -bfile MEME_CHIP_Motif/t48_peaks_anr/background -dna -p 4 -revcomp
+```
+
+Then run this again:
+
+```sh
+python meme-chip.py
+```
+
+You should get more completed result by now.
