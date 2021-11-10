@@ -3,3 +3,8 @@ __pycache__
 .DS_Store
 .ipynb_checkpoints
 .vscode
+ChIP_dataAnalysis/M145.fa.bowtie2idx.*
+ChIP_dataAnalysis/cleanreads/*.*
+ChIP_dataAnalysis/alignmentSAM/*.*
+ChIP_dataAnalysis/alignmentBAM/*.*
+ChIP_dataAnalysis/coverage.tsv

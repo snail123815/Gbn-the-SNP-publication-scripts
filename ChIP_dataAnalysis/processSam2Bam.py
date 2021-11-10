@@ -7,12 +7,14 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-p', '--pathSam', help='path to sam files')
 parser.add_argument('-o', '--output', help='path to sorted bam files')
 parser.add_argument('-t', '--threads', help='number of threads', type=int)
+parser.add_argument('-m', '--memory', help='G of memory to use', type=int)
 
 args = parser.parse_args()
 
 pathSam = args.pathSam
 pathOut = args.output
 ncpu = str(args.threads)
+mem = args.memory
 
 if not os.path.isdir(pathOut):
     os.makedirs(pathOut)
@@ -30,7 +32,7 @@ for f in fileList:
     bai = os.path.join(pathOut, f'{name[:-4]}.bai')
 
     args = ['samtools', 'sort',
-            '-m', '20G',
+            '-m', f'{mem}G',
             '-o', bam,
             '-O', 'bam',
             '-@', ncpu,
@@ -39,6 +41,8 @@ for f in fileList:
     p = subprocess.run(args, capture_output=True)
     print('output:\n', p.stdout.decode('utf-8'), '\n')
     print('error:\n', p.stderr.decode('utf-8'), '\n')
+    # Note this is not error
+    # [bam_sort_core] merging from 0 files and 20 in-memory blocks... 
 
     args = ['samtools', 'index',
             bam, bai]

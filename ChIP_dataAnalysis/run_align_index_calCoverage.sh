@@ -1,12 +1,13 @@
 #!/bin/bash
-NCPU=16
+
+NCPU=10
+BAMSORTMEM=10
 RAWREADS=cleanreads # dir in source dir
 GENOME=M145.fa # file in source dir
 ISPE=""
 
 OUTDIRSAM=alignmentSAM
-OUTDIRBAM=alignmentBAM # this will be actually copied back to SOURCEDIR. 
-
+OUTDIRBAM=alignmentBAM
 # ===========================================================================================
 echo "[$SHELL] #### Starting Job"
 
@@ -16,8 +17,9 @@ echo "[$SHELL] Started at: $(date)"
 
 # Enter the designed environment
 echo "[$SHELL] Activate shortReads conda env"
-source ~/.bashrc
-micromamba activate shortReads
+
+eval "$($MAMBA_EXE shell hook -s bash)"
+eval "micromamba activate shortReads"
 
 echo "[$SHELL] run alignment"
 CMD="python align_to_genome.py -r $RAWREADS -g $GENOME -o $OUTDIRSAM -p $NCPU $ISPE"
@@ -28,7 +30,7 @@ echo "[$SHELL] Done alignment"
 echo "[$SHELL] Time elaspsed: $(date -ud "@$(($(date +%s) - START_TIME))" +%T) (HH:MM:SS)"
 
 echo "[$SHELL] run indexing"
-CMD="python processSam2Bam.py -p $OUTDIRSAM -o $OUTDIRBAM -t $NCPU"
+CMD="python processSam2Bam.py -p $OUTDIRSAM -o $OUTDIRBAM -t $NCPU -m $BAMSORTMEM"
 echo "[$SHELL] $CMD"
 eval "$CMD"
 
