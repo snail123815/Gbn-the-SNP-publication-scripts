@@ -8,3 +8,5 @@ ChIP_dataAnalysis/cleanreads/*.*
 ChIP_dataAnalysis/alignmentSAM/*.*
 ChIP_dataAnalysis/alignmentBAM/*.*
 ChIP_dataAnalysis/coverage.tsv
+# peakcalling .bdg files
+*.bdg
