@@ -1,9 +1,12 @@
 ############################################
+# Omics-leveler software
 # by Chao DU
 # Institute of Biology Leiden
 # Leiden University
 # c.du@biology.leidenuniv.nl
 # durand[dot]dc[at]hotma[no space]il.com
+# Public repo:
+# https://gitlab.services.universiteitleiden.nl/duc/oleveler
 ############################################
 
 from jupyterthemes import jtplot
