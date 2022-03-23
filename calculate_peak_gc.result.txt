@@ -1,0 +1,9 @@
+python3 calculate_peak_gc.py
+Loading genome...
+Binning 300, step 1
+8667507 bins generated.
+GC content calculation complete.
+2662692 bins (30.7%) are with low GC (<= 70%).
+Keep only narrow peaks with width less than 400 (bin/minimum overlap = 300/0.8)
+1668/2402 peaks left (69.4%)
+Found 874 common peaks (52.4%) in low GC (<= 70%) regions.
