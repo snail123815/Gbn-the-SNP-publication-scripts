@@ -21,7 +21,11 @@ def readData(compressedDataPath, rawDataPaths=None):
     """Return fold enrichment array by [[postion, fe, fe], ...]
     rawDataPaths should be a list of pathes"""
     if os.path.isfile(compressedDataPath):
-        with bz2.open(compressedDataPath, 'rb') as data:
+        if compressedDataPath.endswith('.bz2'):
+            uz = bz2
+        elif compressedDataPath.endswith('.xz'):
+            uz = lzma
+        with uz.open(compressedDataPath, 'rb') as data:
             feArray = pickle.load(data)
     elif rawDataPaths is None:
         raise FileNotFoundError(f'{compressedDataPath} not found')
@@ -85,7 +89,7 @@ if __name__ == "__main__":
 
     print('Loading data...')
 
-    compressedDataPath = 'ChIP_resultOnly/foldEnrichmentDf.pickle.bz2'
+    compressedDataPath = 'ChIP_resultOnly/foldEnrichmentDf.pickle.xz'
     outputDir = "Plots/"
     #
     #

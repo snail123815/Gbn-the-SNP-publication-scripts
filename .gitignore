@@ -10,3 +10,4 @@ ChIP_dataAnalysis/alignmentBAM/*.*
 ChIP_dataAnalysis/coverage.tsv
 # peakcalling .bdg files
 *.bdg
+.genomeM145.pkl.xz
