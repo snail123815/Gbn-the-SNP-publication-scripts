@@ -17,12 +17,14 @@ from datetime import datetime
 from Bio.SeqUtils import GC
 
 
-def readData(compressedDataPath, rawDataPaths):
+def readData(compressedDataPath, rawDataPaths=None):
     """Return fold enrichment array by [[postion, fe, fe], ...]
     rawDataPaths should be a list of pathes"""
     if os.path.isfile(compressedDataPath):
         with bz2.open(compressedDataPath, 'rb') as data:
             feArray = pickle.load(data)
+    elif rawDataPaths is None:
+        raise FileNotFoundError(f'{compressedDataPath} not found')
     else:
         def parse(file):
             resArray = np.zeros((8667507), dtype=np.float32)
@@ -83,10 +85,8 @@ if __name__ == "__main__":
 
     print('Loading data...')
 
-    fe25hDataPath = "../../SCO1839_SGR5654/ChIP-Seq_BGI/bdgcmp/25h_FE.bdg"
-    fe48hDataPath = "../../SCO1839_SGR5654/ChIP-Seq_BGI/bdgcmp/48h_FE.bdg"
-    compressedDataPath = '../../SCO1839_SGR5654/ChIP-Seq_BGI/bdgcmp/foldEnrichmentDf.pickle.bz2'
-    outputDir = "../../SCO1839_SGR5654/ChIP-Seq_BGI/"
+    compressedDataPath = 'ChIP_resultOnly/foldEnrichmentDf.pickle.bz2'
+    outputDir = "Plots/"
     #
     #
     # dfLoc = pd.DataFrame.from_dict(dict(zip(
@@ -97,7 +97,7 @@ if __name__ == "__main__":
     # dfLoc = dfLoc.apply(pd.to_numeric)
     #
     #
-    feArray = readData(compressedDataPath, [fe25hDataPath, fe48hDataPath])
+    feArray = readData(compressedDataPath)
     print('Load complete.')
     print('Load genome')
     genomeM145pkl = '.genomeM145.pkl.xz'
@@ -105,7 +105,7 @@ if __name__ == "__main__":
         with lzma.open(genomeM145pkl, 'rb') as fh:
             genomeM145 = pickle.load(fh)
     except FileNotFoundError:
-        genomeM145 = SeqIO.read("../../../Resources/Genomes_Info/Streptomyces_coelicolor/M145.gb", 'genbank')
+        genomeM145 = SeqIO.read("M145.gb", 'genbank')
         with lzma.open(genomeM145pkl, 'wb') as fh:
             pickle.dump(genomeM145, fh)
     print('Genome loaded.')
@@ -116,7 +116,7 @@ if __name__ == "__main__":
     # bin = 2e4
     # step = 1e3
     drawSvg = 1
-    bin = 5000
+    bin = 5000 # needs to be changed when plotting zoom-in regions
     step = 500
 
     if drawSvg:
@@ -227,9 +227,9 @@ if __name__ == "__main__":
                      x=0.01, y=0.01,
                      fragments=1,
                      start=0, end=8667507)
-                     #pagesize=(30 * cm, 20 * cm),
-                     #start=2575869, end=3831697)
-                     #start=3815939, end=3841697)
+                     #pagesize=(30 * cm, 20 * cm), # for plot zoom-in regions
+                     #start=3895278, end=3913450)
+                     #start=5098264, end=5166208)
                      #start=5788306, end=5818220)
                      #start=7561246, end=7590427)
     m145Diagram.write(outputFigure, fmt)

@@ -9,7 +9,7 @@ pattern = 'GATCWT'
 promoterRegion = (-350, 50)
 
 print('Load pattern')
-patternPosBedLzma = f'../../SCO1839_SGR5654/ChIP-Seq_BGI/{pattern}.bed.lzma'
+patternPosBedLzma = f'ChIP_resultOnly/{pattern}.bed.lzma'
 patternPosBedTemp = NamedTemporaryFile()
 with lzma.open(patternPosBedLzma, 'rb') as handle:
     patternPosBedTemp.writelines(handle.readlines())
@@ -21,7 +21,7 @@ try:
     with lzma.open(genomeM145pkl, 'rb') as fh:
         genomeM145 = pickle.load(fh)
 except FileNotFoundError:
-    genomeM145 = SeqIO.read("../../../Resources/Genomes_Info/Streptomyces_coelicolor/M145.gb", 'genbank')
+    genomeM145 = SeqIO.read("M145.gb", 'genbank')
     with lzma.open(genomeM145pkl, 'wb') as fh:
         pickle.dump(genomeM145, fh)
         
@@ -80,14 +80,14 @@ print(f'There are {len(nPatEachGene)} genes with more than {minPats-1} {pattern}
 
 print(f'Read RNA-Seq result data')
 from ChIP_Expression import *
-deseq2_res = '../../../../GitProjects/Gbn-the-SNP-publication-scripts/Transcriptomics/dataTables/transformed/deseq2_comparisonResult_lfcShrink_22d17e_922b2a.tsv'
+deseq2_res = 'Transcriptomics/dataTables/transformed/deseq2_comparisonResult_lfcShrink_22d17e_922b2a.tsv'
 #deseq2_res = pd.read_csv(deseq2_res, sep='\t', header=0, index_col=0)
 #targetTest = ['mu_wt24', 'mu_wt45']
 #deseq2_res_target = deseq2_res.loc[[(l in targetTest) for l in deseq2_res.Label], :].loc[targetGenes, :]
 #print(deseq2_res_target)
 
 geneCompDict_shrink = readCompRes(deseq2_res)
-tpmMeanDf = pd.read_csv('../../../../GitProjects/Gbn-the-SNP-publication-scripts/Transcriptomics/dataTables/mean_417110.tsv', sep='\t', index_col=0)
+tpmMeanDf = pd.read_csv('Transcriptomics/dataTables/mean_417110.tsv', sep='\t', index_col=0)
 newtpmMeanDf = tpmMeanDf.loc[~tpmMeanDf.index.str.contains('SCOs02'),:]
 #plotDistDiff(targetGenes, newtpmMeanDf, 'Dgbn_24', figsize=(5,5))
 #plotDistDiff(targetGenes, newtpmMeanDf, 'Dgbn_45', figsize=(5,5))
@@ -112,7 +112,7 @@ print(f'Generate volcano plot for arm and core genes')
 from oleveler import plotVolcano
 import numpy as np
 
-vstDf = pd.read_csv('../../../../GitProjects/Gbn-the-SNP-publication-scripts/Transcriptomics/dataTables/transformed/vst_2f3e41.tsv',
+vstDf = pd.read_csv('Transcriptomics/dataTables/transformed/vst_2f3e41.tsv',
         sep='\t', index_col=0, header=0)
 plotVolcano(geneCompDict_shrink['mu_wt24'],
         vstDf.loc[:, ['D24_1', 'D24_2', 'D24_3', 'C24_1', 'C24_2', 'C24_3']].mean(axis=1),

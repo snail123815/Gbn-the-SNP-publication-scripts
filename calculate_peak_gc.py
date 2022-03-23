@@ -21,7 +21,7 @@ try:
     with lzma.open(genomeM145pkl, 'rb') as fh:
         genomeM145 = pickle.load(fh)
 except FileNotFoundError:
-    genomeM145 = SeqIO.read("../../../Resources/Genomes_Info/Streptomyces_coelicolor/M145.gb", 'genbank')
+    genomeM145 = SeqIO.read("M145.gb", 'genbank')
     with lzma.open(genomeM145pkl, 'wb') as fh:
         pickle.dump(genomeM145, fh)
 print(f'Binning {int(bin)}, step {int(step)}')
@@ -55,7 +55,7 @@ def gcContentToBed(gcContentData, chr='chr'):
     return bedFile
 
 
-peakComBed = '../../SCO1839_SGR5654/ChIP-Seq_BGI/common_peaks_2402.bed'
+peakComBed = 'ChIP_resultOnly/common_peaks_2402.bed'
 
 with open(peakComBed, 'r') as fh:
     chr = fh.readline().split('\t')[0]
