@@ -1,6 +1,10 @@
 # Gbn-the-SNP-publication-scripts
 
-Draft now.
+Data analysis scripts in the article:
+
+[**Du, C.**](https://orcid.org/0000-0003-3447-5293), [Willemse, J.](https://www.universiteitleiden.nl/en/staffmembers/joost-willemse#tab-2), [Erkelens, A.M.](https://orcid.org/0000-0001-9369-5814), [Carrion, V.J.](https://orcid.org/0000-0002-4093-0355), [Dame, R.T.](https://orcid.org/0000-0001-9863-1692), and [Wezel, G.P.v.](https://orcid.org/0000-0003-0341-1561) (2022) System-wide analysis of the GATC-binding nucleoid-associated protein Gbn and its impact on Streptomyces development. mSystems: e00061-00022.
+
+doi: [10.1128/msystems.00061-22](https://doi.org/10.1128/msystems.00061-22)
 
 ## Dependencies
 
